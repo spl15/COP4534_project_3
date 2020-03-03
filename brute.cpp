@@ -10,8 +10,11 @@
 brute::brute(float myarray[MAXCITIES][MAXCITIES], int len)
 {
     brute::numToTest = len -1;
-    route = new int[numToTest];
-
+   // route = new int[numToTest];
+    for(int i = 0;i < MAXCITIES;i++)
+    {
+        route[i] = -1;
+    }
     for(int i = 0; i < numToTest;i++)
     {
         route[i] = i + 1;
@@ -25,12 +28,25 @@ brute::brute(float myarray[MAXCITIES][MAXCITIES], int len)
         }
     }
 }
+/*
+brute::brute(const brute &bp)
+{
+    std::cout << "copy const" <<  std::endl;
+    this->numToTest = bp.numToTest;
+    this->route = new int[numToTest];
+
+}
+brute::~brute()
+{
+    delete[] route;
+}
+*/
 void brute::swap(int x, int y)
 {
     int temp;
-    temp = this->route[x];
-    this->route[x] = this->route[y];
-    this->route[y] = temp;
+    temp = route[x];
+    route[x] = route[y];
+    route[y] = temp;
 }
 float brute::findDistance(int myArray[])
 {

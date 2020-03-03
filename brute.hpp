@@ -19,7 +19,10 @@ class brute
 {
     public:
         brute(float[MAXCITIES][MAXCITIES], int);
-        int numToTest;
+        //brute(const brute &bp);
+	//brute& operator = (const brute &bp);
+	//~brute();
+       	int numToTest;
         float distance[MAXCITIES][MAXCITIES];
         void printTest();
         void findShortestRoute();
@@ -27,7 +30,7 @@ class brute
         void perm1(); 
         int factorial(int);
         void swap(int, int);
-        int* route;
+        int route[MAXCITIES];
 };
 
 #endif
