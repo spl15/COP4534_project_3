@@ -16,12 +16,16 @@ class Genetic
         Genetic(int,int,int,int);
         void runGenerations();
         float findDistance(int[], float[][MAXCITIES]); 
-    private:
+        void perm(int,int,int,int,int);
+        int* mutate(int[]);
         int numofGenerations;
         int numOfTours;
         int numOfCities;
         int percentGeneration;
         int tour[MAXCITIES];
+        int workspaceA[][MAXCITIES + 11];
+        int workspabeB[][MAXCITIES + 1];
+        int inSpaceA;
 
 };
 

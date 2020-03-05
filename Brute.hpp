@@ -7,14 +7,7 @@
 #ifndef BRUTE_HPP
 #define BRUTE_HPP
 
-#include <sys/time.h>
-#include <time.h>
-#include <cstdlib>
-#include <cstdio>
-#include <iostream>
-#include <string>
-#include <fstream>
-#define MAXCITIES 20
+#include "Matrix.hpp"
 
 class Brute
 {
