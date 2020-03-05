@@ -5,8 +5,8 @@
  *      Proj  : Project 03
  */
 
-#include "brute.hpp"
-
+//#include "brute.hpp"
+#include "Genetic.hpp"
 
 void prompt(int*, int*, int*, int*);
 void populateDistance(float[][MAXCITIES]);
@@ -21,7 +21,7 @@ int main()
 {
     // delcare user input 
     int numOfCities; // number of cities 
-    int tours; // how many toursin a given generation
+    int tours; // how many tours in a given generation
     int generations; // the number fo generations to run 
     int percentGeneration; // the percent of a generation that will have mutations
     timespec start;
@@ -37,11 +37,11 @@ int main()
     populateDistance(distance);
     
     prompt(&numOfCities, &tours, &generations, &percentGeneration);
-    brute tryBrute(distance, numOfCities);
+    Brute myBrute(numOfCities);
     
-    
+    //std::cout << myBrute.factorial(numOfCities) << std::endl;
     clock_gettime(CLOCK_REALTIME, &start);
-    tryBrute.findShortestRoute();
+    myBrute.findShortestRoute(distance);
     clock_gettime(CLOCK_REALTIME, &finish);
     
     sec = (finish.tv_sec - start.tv_sec);
@@ -93,11 +93,11 @@ void prompt(int* num, int* tour, int* gen, int* percent)
 
     cout << "The number of cities to run ";
     cin >> *num;
-   // while((*num < 1) || (*num > 20))
-    //{
-     //   cout << "Must be between 1 and 20 cities, please try again: ";
-     //   cin >> *num; 
-   // }
+    while((*num < 1) || (*num > 20))
+    {
+        cout << "Must be between 1 and 20 cities, please try again: ";
+        cin >> *num; 
+    }
 
     cout << "how many individual tours are in a given generation: ";
     cin >> *tour;
@@ -107,9 +107,9 @@ void prompt(int* num, int* tour, int* gen, int* percent)
 
     cout << "what percent of a generation should be comprised of mutations: ";
     cin >> *percent;
-   // while((*percent < 0) || (*percent > 100))
-   /// {
-    //    cout << "percent needs to be from (0 - 100), please try again: ";
-    //    cin >> *percent;
-   // }
+    while((*percent < 0) || (*percent > 100))
+    {
+        cout << "percent needs to be from (0 - 100), please try again: ";
+        cin >> *percent;
+    }
 }

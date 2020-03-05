@@ -1,6 +1,6 @@
 # 
 CXX = g++
-OBJECTS= main.o brute.o
+OBJECTS= main.o Brute.o Genetic.o
 CXXFLAGS = -std=c++11 -c -g -Wall -s
 
 # all compiles both files and then links the object files to build the hash exe
@@ -11,9 +11,13 @@ all: $(OBJECTS)
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) main.cpp
 	
+#creates the genetic object file
+Genetic.o: Genetic.cpp
+	$(CXX) $(CXXFLAGS) Genetic.cpp
+	
 # creates the brute object file
-brute.o: brute.cpp
-	$(CXX) $(CXXFLAGS) brute.cpp
+Brute.o: Brute.cpp
+	$(CXX) $(CXXFLAGS) Brute.cpp
 
 clean:
 	$(RM) *o short
