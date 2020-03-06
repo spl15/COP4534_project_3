@@ -33,20 +33,7 @@ void Brute::swap(int x, int y)
     this->route[x] = this->route[y];
     this->route[y] = temp;
 }
-float Brute::findDistance(int myArray[], float distances[][MAXCITIES])
-{
-    float temp = distances[0][myArray[0]];
-    
-    
-    for(int i = 0;i < (numToTest - 1);i++)
-    {
-        temp = temp + distances[myArray[i]][myArray[i+1]];
-    }
-    temp = temp + distances[myArray[numToTest - 1]][myArray[0]];
-    
-
-    return temp;
-}/*
+/*
 void brute::perm1()
 {
     int n,m,k,p,q,i;
@@ -100,7 +87,7 @@ long Brute::factorial(long x)
         return x * factorial(x-1);//total;
     }
 }
-void Brute::findShortestRoute(float distances[][MAXCITIES])
+void Brute::findShortestRoute(Matrix cities)
 {
     float temp;
     int m,k,p,q,i,j,h;
@@ -112,7 +99,7 @@ void Brute::findShortestRoute(float distances[][MAXCITIES])
     {
         winner[i] = route[i];
     }
-    min = findDistance(winner, distances);
+    min = cities.findDistance(winner);
    int count = 1;
    std::cout << n << std::endl;
    //std::cout << factorial(numToTest) << std::endl;/*
@@ -138,14 +125,14 @@ void Brute::findShortestRoute(float distances[][MAXCITIES])
             p++;
             q--;
         }
-        temp = findDistance(route, distances);
+        temp = cities.findDistance(route);
         if(temp < min)
         {
             for(j = 0;j < numToTest;j++)
             {
                  winner[j] = route[j];
             }
-            min = findDistance(winner, distances);
+            min = cities.findDistance(winner);
         }
     }
     std::cout << count << std::endl;

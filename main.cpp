@@ -38,10 +38,11 @@ int main()
     
     prompt(&numOfCities, &tours, &generations, &percentGeneration);
     Brute myBrute(numOfCities);
+    Matrix matrix(distance, numOfCities);
+    Genetic gen(numOfCities,generations, tours, percentGeneration);
     
-    //std::cout << myBrute.factorial(numOfCities) << std::endl;
     clock_gettime(CLOCK_REALTIME, &start);
-    myBrute.findShortestRoute(distance);
+    myBrute.findShortestRoute(matrix);
     clock_gettime(CLOCK_REALTIME, &finish);
     
     sec = (finish.tv_sec - start.tv_sec);

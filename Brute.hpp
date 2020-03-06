@@ -15,8 +15,7 @@ class Brute
         Brute(int);//float[MAXCITIES][MAXCITIES], int);
         //float distance[MAXCITIES][MAXCITIES];
         //void printTest();
-        void findShortestRoute(float[][MAXCITIES]);
-        float findDistance(int[], float[][MAXCITIES]);
+        void findShortestRoute(Matrix);
         void perm1(); 
         long factorial(long);
         void swap(int, int);

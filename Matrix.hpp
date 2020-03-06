@@ -13,6 +13,11 @@
 class Matrix
 {
     public:
+        Matrix(float[MAXCITIES][MAXCITIES], int);
+        float findDistance(int[]);
+    private:
+        float edges[MAXCITIES][MAXCITIES];
+        int numOfCities;
 };
 
 #endif

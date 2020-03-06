@@ -14,25 +14,17 @@ Genetic::Genetic(int numCities, int numGenerations, int numTours, int percent)
     Genetic::percentGeneration = percent;
     Genetic::inSpaceA = 1;
 }
-float Genetic::findDistance(int route[], float distances[][MAXCITIES])
+void Genetic::mutate(int myArray[], int num)
 {
-    float temp = distances[0][route[0]];
-    
-    
-    for(int i = 0;i < (numToTest - 1);i++)
-    {
-        temp = temp + distances[route[i]][route[i+1]];
-    }
-    temp = temp + distances[route[numToTest - 1]][route[0]];
-    
+    int temp = myArray[0];
+    myArray[0] = myArray[num-2];
+    myArray[num-2] = temp;
 
-    return temp;
-}
-int* mutate(int myArray[], int num)
-{
-   int temp[num];
+    temp = myArray[1];
+    myArray[1] = myArray[num-1];
+    myArray[num-1] = temp;
 
-
-
-    return temp;
+    temp = myArray[2];
+    myArray[2] = myArray[num-3];
+    myArray[num-3] = temp;
 }
